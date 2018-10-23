@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Busqueda</title>
+
+     
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>  
+    <script src="js/dataTables.buttons.min.js"></script>
+    <link href='css/bootstrap-inputs.css' rel='stylesheet'> 
+    
+   <link href='css/bootstrap.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <script >
+//       $(document).ready(function() {
+//        $('#tBusqueda').DataTable();
+// } );
+//       $(document).ready(function() {
+//     $('#tBusqueda').DataTable( {
+//         "processing": true,
+//         "serverSide": true,
+//         "orderable": false,
+//         "searchable": false,
+//         "ajax": "ajax.php"
+//     } );
+// } );
+    </script>     
+
+</head>
+<body>
+<h1>Buscador: </h1> 
+ 
+
+<div class="container" id="menuBuscar">
+
+      <div class="row">          
+          
+          
+        <div class="col-lg-8"> 
+        <select data-placeholder="Elija una Localidad..." class="chosen-select" tabindex="2" id="txt_distrito">        
+          <option value="123">San Miguel de Tucuman</option>
+          <option value="002">Aguilares</option>
+          <option value="010">El Manantial</option>
+          <option value="011">San Pablo</option>
+          <option value="029">Concepcion</option>
+          <option value="085">Monteros</option>
+          <option value="133">Tafi Viejo</option>
+          <option value="143">Alberdi</option>
+          <option value="144">Bella Vista</option>
+          <option value="153">Las Talitas</option>
+          <option value="154">Raco</option>
+          <option value="156">San Javier</option>
+          <option value="158">Banda del Rio Sali</option>
+          <option value="160">Delfin Gallo</option>
+          <option value="162">San Andres</option>
+          <option value="163">Las Cejas</option>
+          <option value="164">Las Tenia</option>
+          <option value="168">Loas Ralos</option>
+          <option value="171">Alderetes</option>
+          <option value="172">La Favorita</option>
+          <option value="173">El Bracho</option>
+          <option value="176">San Jose de Macomitas</option>
+          <option value="177">Villa Padre Monti</option>
+          <option value="178">7 de Abril</option>
+          <option value="179">Gobernador Garmendia</option>
+          <option value="184">El Timbo</option>
+          <option value="185">Choromoro</option>
+          <option value="187">Trancas</option>
+          <option value="188">Tafi del Valle</option>
+          <option value="189">Estacion Araoz</option>
+          <option value="190">Trancas</option>
+          <option value="194">Rio Colorado</option>
+          <option value="197">Rio Chico</option>
+          <option value="199">Simoca</option>
+          <option value="200">Colonia Santa Ana</option>
+          <option value="202">Villa Belgrano</option>
+          <option value="203">Donato Alvarez</option>
+          <option value="206">La Posta</option>
+          <option value="207">Huasa Pampa</option>
+          <option value="211">Atahona</option>
+          <option value="212">Monteagudo</option>
+          <option value="213">Santa Cruz</option>
+          <option value="214">Taco Ralo</option>
+          <option value="215">Lamadrid</option>
+          <option value="216">Puesto de Los Perez</option>
+          <option value="234">Los Arroyos</option>
+          <option value="235">San Agustin</option>
+          <option value="236">Los Perez</option>
+          <option value="237">Puesto Nuevo</option>
+          <option value="238">Rumi Punco</option>
+          <option value="241">El Churqui</option>
+          <option value="246">Gobernador Obispo Piedrabuena</option>
+          <option value="248">La Cañada</option>
+          <option value="253">Lules</option>
+          <option value="256">Los Gomez</option>
+          <option value="257">El Quimil</option>
+          <option value="258">Mujer Muerta</option>
+          <option value="259">La Rinconada</option>
+          <option value="261">La Encontrada</option>
+          <option value="262">La Reduccion</option>
+          <option value="264">Cochamolla</option>
+          <option value="265">El Naranjo</option>
+          <option value="266">Ohuanta</option>
+          <option value="268">La Calera</option>
+          <option value="269">Lusiana</option>
+          <option value="271">Los Positos</option>
+          <option value="272">Monte Bello</option>
+          <option value="274">Amberes</option>
+          <option value="276">La Florida</option>
+          <option value="300">Los Pocitos T.V.</option>
+          <option value="301">Yonopongo</option>
+          <option value="310">Taco Palta</option>
+          <option value="311">Puesto de Uncos</option>
+          <option value="312">Puestito de Arriba</option>
+          <option value="313">El Cadillal</option>
+          <option value="501">Yerba Buena</option>    
+        </select>
+        </div>
+      </div>
+      <div class="row">    
+        <div class="col-lg-8">    
+        <select data-placeholder="Buscar por..." class="chosen-select" tabindex="2" id="txt_tbuscar" >        
+              <option value="0">Codigo Cliente</option>
+              <option value="1">DNI</option>
+              <option value="2">Nombre Cliente</option>
+              <option value="3">Tipo Cliente</option>
+              <option value="4">Distrito</option>
+              <option value="5">Cuenta</option>
+              <option value="6">Tipo Cuenta</option>
+              <option value="7">Codigo Usuario</option>
+              <option value="8">Agencia Nº</option>
+              <option value="9">Agecnia Nombre</option>
+              <option value="10">Sup Terreno</option>
+              <option value="11">Sup Cubierta</option>
+              <option value="12">Edificio Altura</option>
+              <option value="13">Tipo Edificacion</option>
+              <option value="14">Coeficiente Edificacion</option>
+              <option value="15">Localidad</option>
+              <option value="16">Barrio</option>
+              <option value="17">Calle</option>
+              <option value="18">Manzana Catastral </option>
+              <option value="19">Seccion Catastral</option>
+              <option value="20">Codigo Servicio</option>
+              </select>
+        </div>
+
+        </div>
+
+        <div class="col-lg-8"> 
+            <input type="text" class="form-control" placeholder="ingrese el valor a buscar" id="txt_valor" autofocus>
+            <button class="btn btn-default btn-xs active" type="button" id="btn_buscador"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+
+  </div>
+
+  <!-- campos para mostrar en el datatable
+ -->
+        <div  class="modal" id="ventResultados">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+         <!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                 
+          <p id="cuerpoVentana"></p>
+          
+
+          <section >
+            <table class="table table-hover table-bordered table-condensed" id="tBusqueda">
+              <thead>
+                <tr>
+
+                  <th>Cliente</th>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Dist</th>
+                  <th>Cuenta</th>
+                  <th>SubCuenta</th>
+                  <th>TipoCuenta</th>
+                  <th>Codigo Usuario</th>
+                  <th>Agencia</th>
+                  <th>Nombre Agencia</th>
+                  <th>SupTerreno</th>
+                  <th>Sup Cubierta</th>
+                  <th>Eda</th>
+                  <th>TipoEdif</th>
+                  <th>Coeficiente Edif</th>
+                  <th>Provincia</th>
+                  <th>Localidad</th>
+                  <th>Barrio</th>
+                  <th>Calle</th>
+                  <th>Numero</th>
+                  <th>Piso</th>
+                  <th>Dpto</th>
+                  <th>Manzana</th>
+                  <th>Blok</th>
+                  <th>Lote</th>
+                  <th>Casa</th>
+                  <th></th>     
+                </tr>
+              </thead>              
+              <tfoot>
+
+                <tr>
+
+                  <th>Cliente</th>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Dist</th>
+                  <th>Cuenta</th>
+                  <th>SubCuenta</th>
+                  <th>TipoCuenta</th>
+                  <th>Codigo Usuario</th>
+                  <th>Agencia</th>
+                  <th>Nombre Agencia</th>
+                  <th>SupTerreno</th>
+                  <th>Sup Cubierta</th>
+                  <th>Eda</th>
+                  <th>TipoEdif</th>
+                  <th>Coeficiente Edif</th>
+                  <th>Provincia</th>
+                  <th>Localidad</th>
+                  <th>Barrio</th>
+                  <th>Calle</th>
+                  <th>Numero</th>
+                  <th>Piso</th>
+                  <th>Dpto</th>
+                  <th>Manzana</th>
+                  <th>Blok</th>
+                  <th>Lote</th>
+                  <th>Casa</th>
+                  <th></th>     
+                </tr>          
+              </tfoot>
+            </table>    
+          </section>
+
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               
+        </div> -->
+      </div>
+        
+    </div>
+   
+  </div>
+   
+
+
+
+<!-- <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="m1">
+                <section>
+                  <table class='table table-hover table-bordered table-condensed compact' id="tPH" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                  <th>Cliente</th>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Dist</th>
+                  <th>Cuenta</th>
+                  <th>SubCuenta</th>
+                  <th>TipoCuenta</th>
+                  <th>Codigo Usuario</th>
+                  <th>Agencia</th>
+                  <th>Nombre Agencia</th>
+                  <th>SupTerreno</th>
+                  <th>Sup Cubierta</th>
+                  <th>Eda</th>
+                  <th>TipoEdif</th>
+                  <th>Coeficiente Edif</th>
+                  <th>Provincia</th>
+                  <th>Localidad</th>
+                  <th>Barrio</th>
+                  <th>Calle</th>
+                  <th>Numero</th>
+                  <th>Piso</th>
+                  <th>Dpto</th>
+                  <th>Manzana</th>
+                  <th>Blok</th>
+                  <th>Lote</th>
+                  <th>Casa</th>
+                  <th></th>     
+                                                            
+                      </tr>
+                    </thead>
+                    <tbody>          
+                    </tbody>
+                    <tfoot>          
+                    </tfoot>
+                  </table> 
+                </section>  
+              </div>
+              <div role="tabpanel" class="tab-pane" id="m2">
+                   
+              </div>
+            </div>
+
+
+ -->
+
+
+<!-- 
+ <form class="form-inline my-2 my-lg-0">
+          <div class="form-group">           
+            <select class="form-control form-control-sm" tabindex="2" id="txt_buscarPor" name="opcion">
+              <option value="0">Cuenta</option>
+              <option value="1">Padron</option>
+              <option value="2">Calle</option>
+              <option value="3">Numero</option>
+              <option value="4">Barrio</option>
+
+
+       </select>
+          </div> 
+        </form>  --> 
+
+<!-- <form id="buscador" name="buscador" method="post" action="ajax.php"> 
+    <br>
+        Nombre <input type="checkbox" name="buscar" value="buscar" />
+        <br>
+        Tipo <input type="checkbox" name="buscar2" value="buscar2" />
+        <br>
+    <input id="txt_valor" name="key" type="search" placeholder="Buscar aquí..." autofocus >
+    <input type="submit" name="buscador" class="boton peque aceptar" value="buscar" >
+
+</form> -->
+<!-- <?php 
+// Resultado, número de registros y contenido.
+echo $registros;
+echo $texto; 
+?>
+ -->
+<script >
+  
+ 
+   
+ function buscador(distrito,valor,campo){
+   $(document).ready(function() {
+      var table=$("#tBusqueda").datatable({
+      "processing":true,
+      "serverSide":true,
+      //"destroy":true,
+      "ajax":{
+        "type":"POST",
+        "url": "listar.php",
+       // "url": "ajax.php",          
+        "data":{'valor': valor, 'distrito': distrito, 'campo': campo},
+      },
+      "columns":[
+                {"data":"inm_cod"},
+                {"data":"inm_doc"},
+                {"data":"inm_nomcli"},
+                {"data":"tipocli"},
+                {"data":"inm_dist"},
+                {"data":"inm_cta"},                            
+                {"data":"inm_scta"},
+                {"data":"tipcuenta"},
+                {"data":"cod_usu"},
+                {"data":"inm_age"},                            
+                {"data":"age_nom"},
+                {"data":"inm_supter"},
+                {"data":"inm_supcub"},
+                {"data":"inm_eda"},                            
+                {"data":"inm_tipedi"},
+                {"data":"coef_edif"},
+                {"data":"loc_prov"},
+                {"data":"inm_loc"},                            
+                {"data":"inm_bar"},
+                {"data":"inm_cal"},
+                {"data":"inm_nro"},
+                {"data":"inm_pis"},                            
+                {"data":"inm_dto"},
+                {"data":"inm_man"},
+                {"data":"inm_blk"},
+                {"data":"inm_lot"},                            
+                {"data":"inm_cas"},
+                
+        // {"defaultContent": "<button title='Ir al Mapa' type='button' class='postMap btn btn-info btn-xs' id='btn_posicionar' ><i class='fa fa-map-marker' aria-hidden='true'></i></button>"}  
+      ],
+      "language": idioma_espanol,
+      "dom":"<'row'<'form-inline' <'col-sm-offset-9'B>>>"
+         +"<'row' <'form-inline' <'col-sm-1'f>>>"
+         +"<rt>"
+         +"<'row'<'form-inline'"
+         +" <'col-sm-6 col-md-6 col-lg-6'l>"
+         +"<'col-sm-6 col-md-6 col-lg-6'p>>>",
+      "buttons":[ 
+        {
+                extend:    'excelHtml5',
+                text:      '<i class="fa fa-file-excel-o"></i>',
+                className: "btn btn-success",
+                titleAttr: 'Excel'
+            },
+            {
+              extend: 'csvHtml5',
+              text: '<i class="fa fa-file-text-o"></i>',
+              className:"btn btn-info",
+              titleAttr: 'CSV'
+            },
+            {
+                extend:    'pdfHtml5',
+                text:      '<i class="fa fa-file-pdf-o"></i>',
+                className : "btn btn-danger",
+                titleAttr: 'PDF'
+             }
+      ],
+      scrollY:        '60vh',
+          scrollCollapse: true,
+          paging:         false,
+    });
+
+       mostrar("#dt_clientes tbody",table);
+      });
+     
+  
+  
+   
+  };
+  var mostrar = function(tbody, table){
+  
+    $("#tBusqueda").on("click", "button.postMap", function(){
+    
+      $("#ventResultados").modal("hide");
+      var data = table.row( $(this).parents("tr") ).data();
+      //posicionar(data.inm_dist,data.inm_cta);
+        list_PH(data.inm_dist,data.inm_cta);
+
+    });
+  };
+  var idioma_espanol = {
+        "sProcessing":     "Procesando...",
+        "sLengthMenu":     "Mostrar _MENU_ registros",
+        "sZeroRecords":    "No se encontraron resultados",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+        "sInfo":           "Mostrando del _START_ al _END_ de un total de _TOTAL_",
+        "sInfoEmpty":      "Mostrando del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "<span aria-hidden='true'>&raquo;</span>",
+            "sPrevious": "<span aria-hidden='true'>&laquo;</span>"
+    },
+    "oAria": {
+        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+  };
+
+
+
+
+
+   $("#txt_valor").keypress(function(e){
+              if(e.which == 13){//control de la tecla enter
+                $('#btn_buscador').click();
+              }
+            });
+
+  $("#btn_buscador").click(function(){
+    /*var tipo=$("#btn_busTipo").attr("name");*/
+    var tipo="";  
+    var selectipo=document.getElementById("txt_tbuscar").value;
+    switch(selectipo) {    
+    case "0":
+        tipo="inm_cod";
+        break;
+    case "1":
+        tipo="inm_doc";
+        break;
+    case "2":
+        tipo="inm_nomcli";
+        break;
+    case "3":
+        tipo="tipocli";
+        break;
+
+    case "4":
+        tipo="inm_dist";
+
+        break;
+    case "5":
+        tipo="inm_cta";
+
+        break;
+    case "6":
+        tipo="tipcuenta";
+        break;
+
+    case "7":
+        tipo="inm_codusu";
+        break;
+    case "8":
+        tipo="inm_age";
+        break;
+    case "9":
+        tipo:"age_nom";
+        break;
+    case "10":
+        tipo:"inm_supter";
+        break;
+    case "11":
+        tipo:"inm_supcub";
+        break;
+    case "12":
+        tipo:"inm_eda";
+        break;
+    case "13":
+        tipo:"inm_tipedi";
+        break;
+    case "14":
+        tipo="coef_edif";
+        break;
+   
+    case "15":
+        tipo="inm_loc";
+        break;
+    case "16":
+        tipo="inm_bar";
+        break;
+    case "17":
+        tipo="inm_cal";
+        break;
+    case "18":
+        tipo="inm_man";
+        break;
+    case "19":
+        tipo="inm_seccat";
+        break;
+    case "20":
+        tipo="inm_codser";
+        break;
+ 
+   }
+ 
+    
+
+    var distrito=document.getElementById("txt_distrito").value;
+    var valor=document.getElementById("txt_valor").value;
+  
+    var verfdist=false;
+    var verfvalor=false;
+    
+    if (isNaN(distrito) || (distrito==null)){
+      alert("Verificar el campo distrito, no puede ser vacio y solo debe contener numeros ");
+    }else{
+      verfdist=true;
+    };
+
+    if( (valor == null) || (valor.length == 0) || (/^\s+$/.test(valor)) ) {
+        alert("Verificar el campo de busqueda, no puede ser vacio o contener caracteres no validos");
+    }else{
+      verfvalor=true;
+    };
+    
+    if (verfdist & verfvalor){
+  
+      if (tipo=="inm_cta"){
+        //alert("es numero");
+        list_PH(distrito,valor);
+      }else{
+    //alert ("no es numero");
+      $("#ventResultados").modal("show");
+      buscador(distrito,valor,tipo);
+      };
+        
+      if(tipo=="inm_cod"){
+        list_PH(distrito,valor);
+      }else{
+      $("#ventResultados").modal("show");
+      buscador(distrito,valor,tipo);
+        
+
+      };
+};
+});
+
+
+function list_PH(distrito,cuenta){
+      //alert(distrito+'-'+cuenta);
+
+        var table1 = $("#tPH").DataTable({
+            "destroy":true,
+            "searchable":true,
+            "ajax":{
+                "method":"POST",
+                "url": "list.php",                    
+                "data":{'distrito':distrito,'cuenta':cuenta},
+                },
+            "columns":[
+                {"data":"inm_cod"},
+                {"data":"inm_doc"},
+                {"data":"inm_nomcli"},
+                {"data":"tipocli"},
+                {"data":"inm_dist"},
+                {"data":"inm_cta"},                            
+                {"data":"inm_scta"},
+                {"data":"tipcuenta"},
+                {"data":"cod_usu"},
+                {"data":"inm_age"},                            
+                {"data":"age_nom"},
+                {"data":"inm_supter"},
+                {"data":"inm_supcub"},
+                {"data":"inm_eda"},                            
+                {"data":"inm_tipedi"},
+                {"data":"coef_edif"},
+                {"data":"loc_prov"},
+                {"data":"inm_loc"},                            
+                {"data":"inm_bar"},
+                {"data":"inm_cal"},
+                {"data":"inm_nro"},
+                {"data":"inm_pis"},                            
+                {"data":"inm_dto"},
+                {"data":"inm_man"},
+                {"data":"inm_blk"},
+                {"data":"inm_lot"},                            
+                {"data":"inm_cas"},
+                
+            
+                {"defaultContent": "<button title='Ir al Mapa' type='button' class='postMap btn btn-info btn-xs' id='btn_posicionar' ><i class='fa fa-map-marker' aria-hidden='true'></i></button>"}  
+
+             
+          ],
+   
+            "language": idioma_espanol,
+            "dom":
+                  "<'row'<'form-inline' <'col-sm-offset-5'B>>>" 
+                  +"<'row' <'form-inline' <'col-sm-1'f>>>"
+                  +"<rt>"
+                  +"<'row'<'form-inline'"
+                  +" <'col-sm-6 col-md-6 col-lg-6'l>"
+                  +"<'col-sm-6 col-md-6 col-lg-6'p>>>"
+                  +"<'bottom'i>",
+            "buttons":[ 
+                {
+                    extend:    'excelHtml5',
+                    text:      '<i class="fa fa-file-excel-o"></i>',
+                    className: "btn btn-success",
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    className:"btn btn-info",
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend:    'pdfHtml5',
+                    text:      '<i class="fa fa-file-pdf-o"></i>',
+                    className : "btn btn-danger",
+                    titleAttr: 'PDF'
+                 }
+            ],
+            "order": [[ 2, "asc" ]],            
+            "searching": false,
+    
+            scrollY:        '60vh',
+            scrollCollapse: true,
+
+            paging:         false,
+           
+        });       
+    };  
+
+</script>
+
+
+      <script src="js/jquery-3.1.1.min.js"></script> 
+        <script src="js/jquery.dataTables.min.js"></script>
+      <script src="js/dataTables.bootstrap.min.js"></script>  
+        <script src="js/dataTables.buttons.min.js"></script>
+       
+
+
+        <script src="js/bootstrap.min.js"></script>
+
+    
+
+
+</body>
+</html>
